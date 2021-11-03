@@ -1,7 +1,6 @@
-# maven-learnings
-Learnings on build tool maven
+# Learnings on build tool maven
 
-# Packaging Methods
+## Packaging Methods
 ```
   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -30,18 +29,34 @@ Learnings on build tool maven
          <artifactId>maven-clean-plugin</artifactId>
          <version>3.1.0</version>
        </plugin>
-       <plugins>
+       
        <plugin>
          <artifactId>maven-resource-plugin</artifactId> <!-- copying project resouces to build output -->
          <version>3.0.2</version>
        </plugin>
+       
        <plugin>
          <artifactId>maven-compiler-plugin</artifactId>
          <version>3.8.0</version>
        </plugin>
+       
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-jar-plugin</artifactId>
+         <configuration>
+           <archive>
+             <manifest>
+               <addClasspath>true</addClasspath>
+               <mainClass>com.example.app.MainClass</mainClass>
+             </manifest>
+           </archive>
+         </configuration>
+       </plugin>
+       
       </plugins>
      </pluginManagement>
     </build
+    
   </project>
   
 ```
