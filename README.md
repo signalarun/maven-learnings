@@ -47,6 +47,7 @@
            <archive>
              <manifest>
                <addClasspath>true</addClasspath>
+               <classpathPrefix>libs/</classpathPrefix>
                <mainClass>com.example.app.MainClass</mainClass>
              </manifest>
            </archive>
