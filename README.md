@@ -21,6 +21,27 @@ Learnings on build tool maven
     </properties>
     
     <packaging>jar</packaging> <!-- This indicates the packaging -->
+    
+    
+    <build>
+     <pluginManagement>
+      <plugins>
+       <plugin>
+         <artifactId>maven-clean-plugin</artifactId>
+         <version>3.1.0</version>
+       </plugin>
+       <plugins>
+       <plugin>
+         <artifactId>maven-resource-plugin</artifactId> <!-- copying project resouces to build output -->
+         <version>3.0.2</version>
+       </plugin>
+       <plugin>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>3.8.0</version>
+       </plugin>
+      </plugins>
+     </pluginManagement>
+    </build
   </project>
   
 ```
