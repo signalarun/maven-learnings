@@ -59,7 +59,7 @@
      </pluginManagement>
      
       <plugins>
-       <plugin> <!-- Plugin to create jar with all dependencies -->
+       <plugin> <!-- Plugin to create jar with all dependencies; FAT jar -->
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-assembly-plugin</artifactId>
          <configuration>
@@ -73,6 +73,26 @@
            </archive>
          </configuration>
        </plugin>
+       
+       <plugin> <!-- Plugin to create jar with all dependencies; FAT jar. Run maven clean package; This creates the executable jar. -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals><goal>shade</goal></goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.example.App</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
      </plugins>
     </build
     
