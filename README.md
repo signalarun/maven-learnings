@@ -40,14 +40,15 @@
          <version>3.8.0</version>
        </plugin>
        
-       <plugin>
+       
+       <plugin>  <!-- Helps to generate Jar -->
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-jar-plugin</artifactId>
          <configuration>
            <archive>
              <manifest>
                <addClasspath>true</addClasspath>
-               <classpathPrefix>libs/</classpathPrefix>
+               <classpathPrefix>libs/</classpathPrefix> <!-- manually add all jars to a folder named libs -->
                <mainClass>com.example.app.MainClass</mainClass>
              </manifest>
            </archive>
@@ -56,6 +57,23 @@
        
       </plugins>
      </pluginManagement>
+     
+      <plugins>
+       <plugin> <!-- Plugin to create jar with all dependencies -->
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-assembly-plugin</artifactId>
+         <configuration>
+           <descriptorRefs>
+             <descriptorRef>jar-with-dependencies</descriptorRef>
+           </descriptorRefs>
+           <archive>
+             <manifest>
+               <mainClass>org.example.App</mainClass>
+             </manifest>
+           </archive>
+         </configuration>
+       </plugin>
+     </plugins>
     </build
     
   </project>
